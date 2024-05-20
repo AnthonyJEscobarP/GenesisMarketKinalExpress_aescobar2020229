@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1121.0" style="-fx-background-color: FF6800;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.anthonyescobar.controller.MenuClientesController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1137.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/fondoClientesView.png" />
+         </image></ImageView>
+      <TableView fx:id="tblClientes" layoutX="26.0" layoutY="107.0" onMouseClicked="#seleccionarFila" prefHeight="314.0" prefWidth="769.0" styleClass="tableClientes" stylesheets="@../resources/GenesisEstilos.css">
+        <columns>
+          <TableColumn fx:id="colClienteID" prefWidth="110.0" text="clienteID" />
+          <TableColumn fx:id="colNombreClientes" prefWidth="110.0" text="nombreClientes" />
+            <TableColumn fx:id="colApellidoClientes" prefWidth="110.0" text="apellidoClientes" />
+            <TableColumn fx:id="colNitClientes" prefWidth="110.0" text="nitClientes" />
+            <TableColumn fx:id="colDireccionClientes" prefWidth="110.0" text="direccionClientes" />
+            <TableColumn fx:id="colTelefonoClientes" prefWidth="110.0" text="telefonoClientes" />
+            <TableColumn fx:id="colCorreoClientes" prefWidth="110.0" text="correoClientes" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAgregarC" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="815.0" layoutY="139.0" mnemonicParsing="false" onAction="#agregarCliente" prefHeight="108.0" prefWidth="114.0" styleClass="buttonC" stylesheets="@../resources/GenesisEstilos.css" text="Agregar" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Rockwell" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgAgregar" fitHeight="47.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconoAgregar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnEliminarC" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="0.0" layoutX="815.0" layoutY="290.0" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="108.0" prefWidth="114.0" styleClass="buttonC" stylesheets="@../resources/GenesisEstilos.css" text="Eliminar" textFill="WHITE">
+         <font>
+            <Font name="Rockwell" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgEliminar" fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconoEliminar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnReporteC" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="955.0" layoutY="290.0" mnemonicParsing="false" onAction="#reportesCancelarClientes" prefHeight="108.0" prefWidth="114.0" styleClass="buttonC" stylesheets="@../resources/GenesisEstilos.css" text="Reportes" textFill="WHITE">
+         <font>
+            <Font name="Rockwell" size="19.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgReporte" fitHeight="54.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconoListar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnEditarC" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="953.0" layoutY="139.0" mnemonicParsing="false" onAction="#editarCliente" prefHeight="108.0" prefWidth="114.0" styleClass="buttonC" stylesheets="@../resources/GenesisEstilos.css" text="Editar" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Rockwell" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgEditar" fitHeight="46.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconoEditar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnRegresar" layoutX="998.0" layoutY="29.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuClientes" prefHeight="91.0" prefWidth="107.0" styleClass="btnRegresar" stylesheets="@../resources/GenesisEstilos.css">
+         <graphic>
+            <ImageView fitHeight="76.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconoMenu.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic></Button>
+      <TextField fx:id="txtNombreClientes" layoutX="324.0" layoutY="462.0" prefHeight="30.0" prefWidth="158.0" />
+      <TextField fx:id="txtTelefonoClientes" layoutX="683.0" layoutY="466.0" prefHeight="30.0" prefWidth="189.0" />
+      <TextField fx:id="txtDireccionClientes" layoutX="683.0" layoutY="511.0" prefHeight="30.0" prefWidth="189.0" />
+      <TextField fx:id="txtApellidoClientes" layoutX="324.0" layoutY="501.0" prefHeight="30.0" prefWidth="158.0" />
+      <TextField fx:id="txtNitClientes" layoutX="324.0" layoutY="539.0" prefHeight="30.0" prefWidth="158.0" />
+      <TextField fx:id="txtCorreoClientes" layoutX="683.0" layoutY="550.0" prefHeight="30.0" prefWidth="189.0" />
+      <Label layoutX="203.0" layoutY="457.0" prefHeight="39.0" prefWidth="97.0" text="Nombres" textFill="#f5f5f5">
+         <font>
+            <Font name="Courier New Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="190.0" layoutY="497.0" prefHeight="39.0" prefWidth="124.0" text="Apellidos" textFill="#f5f5f5">
+         <font>
+            <Font name="Courier New Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="227.0" layoutY="534.0" prefHeight="39.0" prefWidth="49.0" text="NIT" textFill="#f5f5f5">
+         <font>
+            <Font name="Courier New Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="534.0" layoutY="462.0" prefHeight="39.0" prefWidth="132.0" text="Direccion" textFill="#f5f5f5">
+         <font>
+            <Font name="Courier New Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="534.0" layoutY="506.0" prefHeight="39.0" prefWidth="114.0" text="Telefono" textFill="#f5f5f5">
+         <font>
+            <Font name="Courier New Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="550.0" layoutY="545.0" prefHeight="39.0" prefWidth="83.0" text="Correo" textFill="#f5f5f5">
+         <font>
+            <Font name="Courier New Bold" size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
