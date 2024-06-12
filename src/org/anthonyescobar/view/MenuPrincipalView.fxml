@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="901.0" style="-fx-background-color: F5BE00;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.anthonyescobar.controller.MenuPrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="1049.0" style="-fx-background-color: F5BE00;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.anthonyescobar.controller.MenuPrincipalController">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="901.0" styleClass="menubar" stylesheets="@../resources/GenesisEstilos.css">
+      <MenuBar prefHeight="25.0" prefWidth="1049.0" styleClass="menubar" stylesheets="@../resources/GenesisEstilos.css">
         <menus>
           <Menu mnemonicParsing="false" style="-fx-text-fill: #FFFFFF;" text="Acerca de">
             <items>
@@ -35,9 +35,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MenuBar>
-      <Pane layoutY="260.0" prefHeight="215.0" prefWidth="901.0" style="-fx-background-color: #2B3C56;">
+      <Pane layoutY="260.0" prefHeight="225.0" prefWidth="1049.0" style="-fx-background-color: #2B3C56;">
          <children>
-            <Button fx:id="btnCargoEmpleados" layoutX="537.0" layoutY="128.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="156.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Cargo de empleados" textFill="#a6830c">
+            <Button fx:id="btnCargoEmpleados" layoutX="257.0" layoutY="41.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="156.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Cargo de empleados" textFill="#a6830c">
                <font>
                   <Font name="Courier New Bold" size="12.0" />
                </font>
@@ -45,7 +45,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnCompras" layoutX="238.0" layoutY="128.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="137.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Menu de Compras" textFill="#a6830c">
+            <Button fx:id="btnCompras" layoutX="101.0" layoutY="128.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="137.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Menu de Compras" textFill="#a6830c">
                <font>
                   <Font name="Courier New Bold" size="12.0" />
                </font>
@@ -53,7 +53,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnProveedores" layoutX="586.0" layoutY="41.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="125.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Proveedores" textFill="#a6830c">
+            <Button fx:id="btnProveedores" layoutX="599.0" layoutY="41.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="125.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Proveedores" textFill="#a6830c">
                <font>
                   <Font name="Courier New Bold" size="12.0" />
                </font>
@@ -61,7 +61,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnClientes" layoutX="181.0" layoutY="41.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="125.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Clientes Menu" textFill="#a6830c">
+            <Button fx:id="btnClientes" layoutX="107.0" layoutY="41.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="125.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Clientes Menu" textFill="#a6830c">
                <font>
                   <Font name="Courier New Bold" size="12.0" />
                </font>
@@ -69,7 +69,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnTipoProductos" layoutX="373.0" layoutY="41.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="156.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Tipo de productos" textFill="#a6830c">
+            <Button fx:id="btnTipoProductos" layoutX="257.0" layoutY="128.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="156.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Tipo de productos" textFill="#a6830c">
                <font>
                   <Font name="Courier New Bold" size="12.0" />
                </font>
@@ -77,39 +77,74 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ImageView fitHeight="75.0" fitWidth="84.0" layoutX="741.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/iconoProveedoresPrincipal.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="62.0" layoutX="111.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="62.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/iconoCargoEmpleadosPrincipal.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="62.0" layoutX="420.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/iconoProductoPrincipal.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="69.0" fitWidth="75.0" layoutX="707.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="69.0" fitWidth="75.0" layoutX="966.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/iconoClientePrincipal.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="84.0" layoutX="136.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="84.0" layoutX="8.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/iconoComprasPrincipal.png" />
                </image>
             </ImageView>
+            <Button fx:id="btnProductos" layoutX="443.0" layoutY="128.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="125.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Productos" textFill="#a6830c">
+               <font>
+                  <Font name="Courier New Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnFacturas" layoutX="609.0" layoutY="128.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="125.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Facturas" textFill="#a6830c">
+               <font>
+                  <Font name="Courier New Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnDetalleFactura" layoutX="770.0" layoutY="129.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="163.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Detalles de Factura" textFill="#a6830c">
+               <font>
+                  <Font name="Courier New Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnDetalleCompras" layoutX="758.0" layoutY="41.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="163.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Detalles de compras" textFill="#a6830c">
+               <font>
+                  <Font name="Courier New Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="75.0" fitWidth="62.0" layoutX="973.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconoProductoPrincipal.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnEmpleados" layoutX="443.0" layoutY="41.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuPrincipal" prefHeight="36.0" prefWidth="125.0" styleClass="buttonP" stylesheets="@../resources/GenesisEstilos.css" text="Empleados" textFill="#a6830c">
+               <font>
+                  <Font name="Courier New Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </Pane>
-      <ImageView fitHeight="142.0" fitWidth="413.0" layoutX="488.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="154.0" fitWidth="444.0" layoutX="583.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/esloganGenesisKinal.PNG" />
          </image>
       </ImageView>
-      <ImageView fitHeight="234.0" fitWidth="528.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="234.0" fitWidth="528.0" layoutX="22.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/LogoGenesisMediano.PNG" />
          </image>

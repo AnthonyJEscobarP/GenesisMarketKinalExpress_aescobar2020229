@@ -92,6 +92,8 @@ public class Productos {
         this.codigoProveedor = codigoProveedor;
     }
 
-
-    
+    @Override
+    public String toString() {
+        return "|| "  + codigoProducto + " || "  + descripcionProducto + " || "  + precioUnitario + " || "  +  existencia + " || "  +  codigoTipoProducto + " || "  + codigoProveedor + " ||";
+    }
 }

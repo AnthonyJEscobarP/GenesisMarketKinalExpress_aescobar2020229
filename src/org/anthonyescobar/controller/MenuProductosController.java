@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +26,7 @@ import org.anthonyescobar.bean.Productos;
 import org.anthonyescobar.bean.Proveedores;
 import org.anthonyescobar.bean.TipoProducto;
 import org.anthonyescobar.db.Conexion;
+import org.anthonyescobar.report.GenerarReportes;
 import org.anthonyescobar.system.Main;
 
 /**
@@ -142,7 +145,7 @@ public class MenuProductosController implements Initializable {
             ResultSet tipoProductoEncontrado = procedimiento.executeQuery();
             while (tipoProductoEncontrado.next()) {
                 resultado = new TipoProducto(tipoProductoEncontrado.getInt("codigoTipoProducto"),
-                        tipoProductoEncontrado.getString("descripcionProducto"));
+                        tipoProductoEncontrado.getString("descripcion"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -164,6 +167,8 @@ public class MenuProductosController implements Initializable {
                         proveedorEncontrado.getString("nombreProveedor"),
                         proveedorEncontrado.getString("apellidosProveedor"),
                         proveedorEncontrado.getString("direccionProveedor"),
+                        proveedorEncontrado.getString("telefonoProveedor"),
+                        proveedorEncontrado.getString("emailProveedor"),
                         proveedorEncontrado.getString("razonSocial"),
                         proveedorEncontrado.getString("contactoPrincipal"),
                         proveedorEncontrado.getString("paginaWeb"));
@@ -175,14 +180,11 @@ public class MenuProductosController implements Initializable {
     }//METODO BUSCAR PROVEEDOR
     
     
-    
-    
-    
     //METODO MOSTRAR PRODUCTOS 
     public ObservableList<Productos> mostrarProductos() {
         ArrayList<Productos> listadoPrd = new ArrayList<>();
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_listarProveedor()}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_listarProductos()}");
             ResultSet resultado = procedimiento.executeQuery();
             while (resultado.next()) {
                 listadoPrd.add(new Productos(resultado.getString("codigoProducto"),
@@ -217,6 +219,7 @@ public class MenuProductosController implements Initializable {
     } //METODO PARA MOSTRAR TIPO DE PRODUCTOS
 
     //METODO MOSTRAR PROVEEDORES 
+    //METODO LISTAR 
     public ObservableList<Proveedores> mostrarProveedores() {
         ArrayList<Proveedores> listadoPrv = new ArrayList<>();
         try {
@@ -228,6 +231,8 @@ public class MenuProductosController implements Initializable {
                         resultado.getString("nombreProveedor"),
                         resultado.getString("apellidosProveedor"),
                         resultado.getString("direccionProveedor"),
+                        resultado.getString("telefonoProveedor"),
+                        resultado.getString("emailProveedor"),
                         resultado.getString("razonSocial"),
                         resultado.getString("contactoPrincipal"),
                         resultado.getString("paginaWeb")));
@@ -236,11 +241,13 @@ public class MenuProductosController implements Initializable {
             e.printStackTrace();
         }//CATCH TRY
         return listadoProveedores = FXCollections.observableArrayList(listadoPrv);
-    } //METODO PARA MOSTRAR PROVEEDORES
+    } //METODO
 
     public void agregarProducto() {
         switch (tipoDeOperaciones) {
             case NULO:
+                limpiarControls();
+                tblProductos.setDisable(false);//////////////////////////////////
                 activarControls();
                 btnAgregarPrd.setText("Guardar");
                 btnEliminarPrd.setText("Cancelar");
@@ -260,12 +267,13 @@ public class MenuProductosController implements Initializable {
                 btnReportePrd.setDisable(false);
                 imgEliminar.setImage(new Image("/org/anthonyescobar/images/iconoEliminar.png"));
                 tipoDeOperaciones = operaciones.NULO;
-
                 break;
         }//SWITVH
+        tblProductos.setDisable(true);
     }//METODO
 
     public void eliminarProducto() {
+        tblProductos.setDisable(false);
         switch (tipoDeOperaciones) {
             case ACTUALIZAR:
                 desactivarControls();
@@ -283,13 +291,18 @@ public class MenuProductosController implements Initializable {
                             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (respuesta == JOptionPane.YES_OPTION) {
                         try {
-                            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_eliminarProducto(?)}");
-                            procedimiento.setString(1, ((Productos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoProducto());
-                            procedimiento.execute();
+                            PreparedStatement procedimientoPrd = Conexion.getInstance().getConexion().prepareCall("{call sp_eliminarProducto(?)}");
+                            procedimientoPrd.setString(1, ((Productos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoProducto());
+                            procedimientoPrd.execute();
+                            
+                            PreparedStatement procedimientoCmp = Conexion.getInstance().getConexion().prepareCall("{call sp_eliminarDetalleCompraConProducto(?)}");
+                            procedimientoCmp.setString(1, ((Productos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoProducto());
+                            procedimientoCmp.execute();
                             listadoProductos.remove(tblProductos.getSelectionModel().getSelectedItem());
                             limpiarControls();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Error eliminando el producto || reintentar: " + e.getMessage());
                         }//CATCH & TRY
                     } else {
                         tblProductos.getSelectionModel().clearSelection();
@@ -306,13 +319,17 @@ public class MenuProductosController implements Initializable {
         switch (tipoDeOperaciones) {
             case NULO:
                 if (tblProductos.getSelectionModel().getSelectedItem() != null) {
+                    activarControls();
                     btnEditarPrd.setText("Actualizar");
                     btnReportePrd.setText("Cancelar");
+                    txtPrecioUnitario.setEditable(false);
+                    txtPrecioDocena.setEditable(false);
+                    txtPrecioMayor.setEditable(false);
+                    txtExistencia.setEditable(false);
                     btnAgregarPrd.setDisable(true);
                     btnEliminarPrd.setDisable(true);
                     imgEditar.setImage(new Image("/org/anthonyescobar/images/iconoActualizar.png"));
                     imgReporte.setImage(new Image("/org/anthonyescobar/images/iconoCancelar.png"));
-                    activarControls();
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
                 } else {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar una fila con datos", "Seleccionar Producto Gracias :)",
@@ -335,8 +352,17 @@ public class MenuProductosController implements Initializable {
         }
     }
 
-    public void reportesProductos() {
+    public void imprimirReporte() {
+        Map parametros = new HashMap();
+        parametros.put("codigoProducto", null);
+        GenerarReportes.mostrarReportes("reportProducto.jasper", "Reporte de productos", parametros);
+    }
+    
+    public void reportesCancelarProductos() {
         switch (tipoDeOperaciones) {
+            case NULO:
+                imprimirReporte();
+                 break;
             case ACTUALIZAR:
                 desactivarControls();
                 limpiarControls();
@@ -353,29 +379,27 @@ public class MenuProductosController implements Initializable {
         }//SWITVH
     }//METODO
 
+    
+    
+    
     public void actualizarInformacion() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarProducto(?,?,?,?,?,?,?,?)}");
-            Productos productoGuardar = new Productos();
-            productoGuardar.setCodigoProducto(txtCodigoProducto.getText());
-            productoGuardar.setDescripcionProducto(txtDescripcionProducto.getText());
-            productoGuardar.setPrecioUnitario(Double.parseDouble(txtPrecioUnitario.getText()));
-            productoGuardar.setPrecioDocena(Double.parseDouble(txtPrecioDocena.getText()));
-            productoGuardar.setPrecioMayor(Double.parseDouble(txtPrecioMayor.getText()));
-            productoGuardar.setExistencia(Integer.parseInt(txtExistencia.getText()));
-            productoGuardar.setCodigoTipoProducto(((Proveedores) cmbCodigoTipoProducto.getSelectionModel().getSelectedItem()).getCodigoProveedor());
-            productoGuardar.setCodigoProveedor(((Proveedores) cmbCodigoProveedor.getSelectionModel().getSelectedItem()).getCodigoProveedor());
-            // -------------------------------------------------------------- //
-                procedimiento.setString(1, productoGuardar.getCodigoProducto());
-                procedimiento.setString(2, productoGuardar.getDescripcionProducto());
-                procedimiento.setDouble(3, productoGuardar.getPrecioUnitario());
-                procedimiento.setDouble(4, productoGuardar.getPrecioDocena());
-                procedimiento.setDouble(5, productoGuardar.getPrecioMayor());
-                procedimiento.setInt(6, productoGuardar.getExistencia());
-                procedimiento.setInt(7, productoGuardar.getCodigoTipoProducto());
-                procedimiento.setInt(8, productoGuardar.getCodigoProveedor());
-                procedimiento.execute();
-                listadoProductos.add(productoGuardar);
+            if (txtCodigoProducto.getText().equals("") || txtDescripcionProducto.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos porfavor", "Ingrese su informacion", JOptionPane.ERROR_MESSAGE);
+            } else {
+                PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarProducto(?,?,?,?)}");
+                Productos productoGuardar = new Productos();
+                productoGuardar.setCodigoProducto(txtCodigoProducto.getText());
+                productoGuardar.setDescripcionProducto(txtDescripcionProducto.getText());
+                productoGuardar.setCodigoTipoProducto(((TipoProducto) cmbCodigoTipoProducto.getSelectionModel().getSelectedItem()).getCodigoTipoProducto());
+                productoGuardar.setCodigoProveedor(((Proveedores) cmbCodigoProveedor.getSelectionModel().getSelectedItem()).getCodigoProveedor());
+                // -------------------------------------------------------------- //
+                    procedimiento.setString(1, productoGuardar.getCodigoProducto());
+                    procedimiento.setString(2, productoGuardar.getDescripcionProducto());
+                    procedimiento.setInt(3, productoGuardar.getCodigoTipoProducto());
+                    procedimiento.setInt(4, productoGuardar.getCodigoProveedor());
+                    procedimiento.execute();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -385,6 +409,7 @@ public class MenuProductosController implements Initializable {
         if (txtCodigoProducto.getText().equals("") || txtDescripcionProducto.getText().equals("") || txtPrecioUnitario.getText().equals("")
                 || txtPrecioDocena.getText().equals("") || txtPrecioMayor.getText().equals("") || txtExistencia.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos porfavor", "Ingrese su informacion", JOptionPane.ERROR_MESSAGE);
+            eliminarProducto();
         } else {
             Productos productoGuardar = new Productos();
             productoGuardar.setCodigoProducto(txtCodigoProducto.getText());
@@ -393,7 +418,7 @@ public class MenuProductosController implements Initializable {
             productoGuardar.setPrecioDocena(Double.parseDouble(txtPrecioDocena.getText()));
             productoGuardar.setPrecioMayor(Double.parseDouble(txtPrecioMayor.getText()));
             productoGuardar.setExistencia(Integer.parseInt(txtExistencia.getText()));
-            productoGuardar.setCodigoTipoProducto(((Proveedores) cmbCodigoTipoProducto.getSelectionModel().getSelectedItem()).getCodigoProveedor());
+            productoGuardar.setCodigoTipoProducto(((TipoProducto) cmbCodigoTipoProducto.getSelectionModel().getSelectedItem()).getCodigoTipoProducto());
             productoGuardar.setCodigoProveedor(((Proveedores) cmbCodigoProveedor.getSelectionModel().getSelectedItem()).getCodigoProveedor());
             try {
                 PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_agregarProducto(?,?,?,?,?,?,?,?)}");
@@ -461,8 +486,8 @@ public class MenuProductosController implements Initializable {
         txtPrecioDocena.clear();
         txtPrecioMayor.clear();
         txtExistencia.clear();
-        cmbCodigoTipoProducto.getSelectionModel().getSelectedItem();
-        cmbCodigoProveedor.getSelectionModel().getSelectedItem();
+        cmbCodigoTipoProducto.setValue(null);
+        cmbCodigoProveedor.setValue(null);
     }
 
     @FXML

@@ -21,8 +21,14 @@ public class MenuPrincipalController implements Initializable {
     @FXML Button btnClientes;
     @FXML Button btnProveedores;
     @FXML Button btnTipoProductos;
-    @FXML Button btnCompras;
+    @FXML Button btnCompras; 
     @FXML Button btnCargoEmpleados;
+    @FXML Button btnProductos;
+    @FXML Button btnEmpleados; 
+    @FXML Button btnDetalleCompras;
+    @FXML Button btnDetalleFactura;
+    @FXML Button btnFacturas;
+    
     //NOTAS: EXECUTE CUANDO DEUELVE ALGO Y EXECUTE QUERY CUANDO SOLO VA A MOSTRAR
     //TABULAR TODO CON ALT SHIFT + F
     @Override
@@ -54,6 +60,10 @@ public class MenuPrincipalController implements Initializable {
            escenarioPrincipal.menuComprasView();
         }else if (event.getSource() == btnCargoEmpleados){
            escenarioPrincipal.menuCargoEmpleadoView();
+        }else if (event.getSource() == btnProductos){
+           escenarioPrincipal.menuProductosView();
+        }else if (event.getSource() == btnFacturas){
+           escenarioPrincipal.menuFacturasView();
         }//
     }
 }

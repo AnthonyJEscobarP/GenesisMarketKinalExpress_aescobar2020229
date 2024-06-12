@@ -113,6 +113,8 @@ public class MenuTipoProductoController implements Initializable {
     public void agregarTipoProducto() {
         switch (tipoDeOperaciones) {
             case NULO:
+                limpiarControls();
+                tblTipoProducto.setDisable(false);//////////////////////////////////
                 activarControls();
                 btnAgregarTp.setText("Guardar");
                 btnEliminarTp.setText("Cancelar");
@@ -130,15 +132,17 @@ public class MenuTipoProductoController implements Initializable {
                 btnEliminarTp.setText("Eliminar");
                 btnEditarTp.setDisable(false);
                 btnReporteTp.setDisable(false);
-                imgAgregar.setImage(new Image("/org/anthonyescobar/images/iconoAgregar.png"));
+                //imgAgregar.setImage(new Image("/org/anthonyescobar/images/iconoAgregar.png"));
                 imgEliminar.setImage(new Image("/org/anthonyescobar/images/iconoEliminar.png"));
                 tipoDeOperaciones = operaciones.NULO;
 
                 break;
         }//SWITVH
+        tblTipoProducto.setDisable(true);///////////////////////////////////////
     }//METODO
 
     public void eliminarTipoProducto() {
+        tblTipoProducto.setDisable(false);
         switch (tipoDeOperaciones) {
             case ACTUALIZAR:
                 desactivarControls();
@@ -229,14 +233,18 @@ public class MenuTipoProductoController implements Initializable {
 
     public void actualizarInformacion() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarTipoProducto(?,?)}");
-            TipoProducto tipoProductoGuardar = (TipoProducto) tblTipoProducto.getSelectionModel().getSelectedItem();
-            tipoProductoGuardar.setCodigoTipoProducto(Integer.parseInt(txtCodigoTipoProducto.getText()));
-            tipoProductoGuardar.setDescripcion(txtDescripcion.getText());
-            // -------------------------------------------------------------- //
-            procedimiento.setInt(1, tipoProductoGuardar.getCodigoTipoProducto());
-            procedimiento.setString(2, tipoProductoGuardar.getDescripcion());
-            procedimiento.execute();
+            if (txtCodigoTipoProducto.getText().equals("") || txtDescripcion.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos porfavor", "Ingrese su informacion", JOptionPane.ERROR_MESSAGE);
+            } else {
+                PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarTipoProducto(?,?)}");
+                TipoProducto tipoProductoGuardar = (TipoProducto) tblTipoProducto.getSelectionModel().getSelectedItem();
+                tipoProductoGuardar.setCodigoTipoProducto(Integer.parseInt(txtCodigoTipoProducto.getText()));
+                tipoProductoGuardar.setDescripcion(txtDescripcion.getText());
+                // -------------------------------------------------------------- //
+                procedimiento.setInt(1, tipoProductoGuardar.getCodigoTipoProducto());
+                procedimiento.setString(2, tipoProductoGuardar.getDescripcion());
+                procedimiento.execute();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

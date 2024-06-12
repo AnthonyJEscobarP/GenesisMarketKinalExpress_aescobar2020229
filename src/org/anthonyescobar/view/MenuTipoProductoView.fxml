@@ -21,7 +21,7 @@
             <Image url="@../images/fondoTiposProductosView.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblTipoProducto" layoutX="528.0" layoutY="35.0" onMouseClicked="#seleccionarFila" prefHeight="366.0" prefWidth="379.0" styleClass="tableTp" stylesheets="@../resources/GenesisEstilos.css">
+      <TableView fx:id="tblTipoProducto" layoutX="545.0" layoutY="126.0" onMouseClicked="#seleccionarFila" prefHeight="293.0" prefWidth="379.0" styleClass="tableTp" stylesheets="@../resources/GenesisEstilos.css">
          <columns>
             <TableColumn fx:id="colCodigoTipoProducto" prefWidth="173.0" text="codigoTipoProducto" />
             <TableColumn fx:id="colDescripcion" prefWidth="205.0" text="descripcion" />
@@ -63,7 +63,7 @@
             </Label>
          </children>
       </GridPane>
-      <Button fx:id="btnAgregarTp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="264.0" layoutY="164.0" mnemonicParsing="false" onAction="#agregarTipoProducto" prefHeight="108.0" prefWidth="114.0" styleClass="buttonTp" stylesheets="@../resources/GenesisEstilos.css" text="Agregar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnAgregarTp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="142.0" layoutY="157.0" mnemonicParsing="false" onAction="#agregarTipoProducto" prefHeight="108.0" prefWidth="114.0" styleClass="buttonTp" stylesheets="@../resources/GenesisEstilos.css" text="Agregar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font>
@@ -78,7 +78,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnEliminarTp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="0.0" layoutX="139.0" layoutY="297.0" mnemonicParsing="false" onAction="#eliminarTipoProducto" prefHeight="108.0" prefWidth="114.0" styleClass="buttonTp" stylesheets="@../resources/GenesisEstilos.css" text="Eliminar" textFill="WHITE">
+      <Button fx:id="btnEliminarTp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="0.0" layoutX="290.0" layoutY="157.0" mnemonicParsing="false" onAction="#eliminarTipoProducto" prefHeight="108.0" prefWidth="114.0" styleClass="buttonTp" stylesheets="@../resources/GenesisEstilos.css" text="Eliminar" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font>
@@ -93,7 +93,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnEditarTp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="2.0" layoutX="74.0" layoutY="164.0" mnemonicParsing="false" onAction="#editarTipoProducto" prefHeight="108.0" prefWidth="114.0" styleClass="buttonTp" stylesheets="@../resources/GenesisEstilos.css" text="Editar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnEditarTp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="2.0" layoutX="136.0" layoutY="280.0" mnemonicParsing="false" onAction="#editarTipoProducto" prefHeight="108.0" prefWidth="114.0" styleClass="buttonTp" stylesheets="@../resources/GenesisEstilos.css" text="Editar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font>
@@ -108,7 +108,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnReporteTp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="329.0" layoutY="297.0" mnemonicParsing="false" onAction="#reportesTipoProducto" prefHeight="108.0" prefWidth="114.0" styleClass="buttonTp" stylesheets="@../resources/GenesisEstilos.css" text="Reportes" textFill="WHITE">
+      <Button fx:id="btnReporteTp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="290.0" layoutY="280.0" mnemonicParsing="false" onAction="#reportesTipoProducto" prefHeight="108.0" prefWidth="114.0" styleClass="buttonTp" stylesheets="@../resources/GenesisEstilos.css" text="Reportes" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="19.0" />
          </font>

@@ -14,7 +14,9 @@ import javafx.stage.Stage;
 import org.anthonyescobar.controller.MenuCargoEmpleadoController;
 import org.anthonyescobar.controller.MenuClientesController;
 import org.anthonyescobar.controller.MenuComprasController;
+import org.anthonyescobar.controller.MenuFacturasController;
 import org.anthonyescobar.controller.MenuPrincipalController;
+import org.anthonyescobar.controller.MenuProductosController;
 import org.anthonyescobar.controller.MenuProveedoresController;
 import org.anthonyescobar.controller.MenuTipoProductoController;
 import org.anthonyescobar.controller.VentanaProgramadorController;
@@ -92,7 +94,7 @@ public class Main extends Application {
     
     public void menuProveedoresView() {
         try {
-            MenuProveedoresController proveedoresVw = (MenuProveedoresController) cambiarEscena("MenuProveedoresView.fxml", 1110, 592);
+            MenuProveedoresController proveedoresVw = (MenuProveedoresController) cambiarEscena("MenuProveedoresView.fxml", 1205, 641);
             proveedoresVw.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -124,6 +126,26 @@ public class Main extends Application {
         try {
             MenuCargoEmpleadoController cargoEmpleadoVw = (MenuCargoEmpleadoController) cambiarEscena("MenuCargoEmpleadoView.fxml", 1110, 592);
             cargoEmpleadoVw.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            //System.out.println(e.getMessage()); 
+        }
+    }
+    
+    public void menuProductosView() {
+        try {
+            MenuProductosController productosVw = (MenuProductosController) cambiarEscena("MenuProductosView.fxml", 1110, 592);
+            productosVw.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            //System.out.println(e.getMessage()); 
+        }
+    }
+    
+    public void menuFacturasView() {
+        try {
+            MenuFacturasController facturasVw = (MenuFacturasController) cambiarEscena("MenuFacturasView.fxml", 1110, 592);
+            facturasVw.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
             //System.out.println(e.getMessage()); 

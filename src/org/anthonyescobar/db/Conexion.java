@@ -16,7 +16,6 @@ public class Conexion {
                     // localhost o la ip loopBack (en este caso 127.0.0.1). y MANEJO DE EXCEPCIONES PARA CLASE NO ENCONTRA,SQL, ACCESO ILEGAL E ISNTANCIA.
         }catch(ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException error){
             error.printStackTrace();
-            
         }
     }
     // SINGLETON 

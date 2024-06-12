@@ -25,7 +25,7 @@
             <TableColumn fx:id="colTotalDocumento" prefWidth="121.0" text="totalDocumento" />
         </columns>
       </TableView>
-      <Button fx:id="btnAgregarCmp" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="683.0" layoutY="87.0" mnemonicParsing="false" onAction="#agregarCompra" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCmp" stylesheets="@../resources/GenesisEstilos.css" text="Agregar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnAgregarCmp" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="695.0" layoutY="133.0" mnemonicParsing="false" onAction="#agregarCompra" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCmp" stylesheets="@../resources/GenesisEstilos.css" text="Agregar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font>
@@ -40,7 +40,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnEliminarCmp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="0.0" layoutX="683.0" layoutY="246.0" mnemonicParsing="false" onAction="#eliminarCompra" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCmp" stylesheets="@../resources/GenesisEstilos.css" text="Eliminar" textFill="WHITE">
+      <Button fx:id="btnEliminarCmp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="0.0" layoutX="713.0" layoutY="268.0" mnemonicParsing="false" onAction="#eliminarCompra" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCmp" stylesheets="@../resources/GenesisEstilos.css" text="Eliminar" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font>
@@ -55,7 +55,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnReporteCmp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="872.0" layoutY="300.0" mnemonicParsing="false" onAction="#reportesCancelarCompra" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCmp" stylesheets="@../resources/GenesisEstilos.css" text="Reportes" textFill="WHITE">
+      <Button fx:id="btnReporteCmp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="859.0" layoutY="289.0" mnemonicParsing="false" onAction="#reportesCancelarCompra" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCmp" stylesheets="@../resources/GenesisEstilos.css" text="Reportes" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="19.0" />
          </font>
@@ -70,7 +70,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnEditarCmp" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="863.0" layoutY="133.0" mnemonicParsing="false" onAction="#editarCompra" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCmp" stylesheets="@../resources/GenesisEstilos.css" text="Editar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnEditarCmp" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="853.0" layoutY="160.0" mnemonicParsing="false" onAction="#editarCompra" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCmp" stylesheets="@../resources/GenesisEstilos.css" text="Editar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font>
@@ -85,11 +85,11 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnRegresar" layoutX="998.0" layoutY="29.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuCompras" prefHeight="91.0" prefWidth="107.0" styleClass="btnRegresar" stylesheets="@../resources/GenesisEstilos.css">
+      <Button fx:id="btnRegresar" layoutX="992.0" layoutY="27.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuCompras" prefHeight="91.0" prefWidth="107.0" styleClass="btnRegresar" stylesheets="@../resources/GenesisEstilos.css">
          <graphic>
             <ImageView fitHeight="76.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/iconoMenu.png" />
+                  <Image url="@../images/iconoCasa.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

@@ -127,6 +127,8 @@ public class MenuComprasController implements Initializable {
     public void agregarCompra() {
         switch (tipoDeOperaciones) {
             case NULO:
+                limpiarControls();
+                tblCompras.setDisable(false);//////////////////////////////////
                 activarControls();
                 btnAgregarCmp.setText("Guardar");
                 btnEliminarCmp.setText("Cancelar");
@@ -149,9 +151,11 @@ public class MenuComprasController implements Initializable {
 
                 break;
         }//SWITVH
+        tblCompras.setDisable(true);//////////////////////////////////
     }//METODO
 
     public void eliminarCompra() {
+        tblCompras.setDisable(false);//////////////////////////////////
         switch (tipoDeOperaciones) {
             case ACTUALIZAR:
                 desactivarControls();
@@ -241,18 +245,23 @@ public class MenuComprasController implements Initializable {
 
     public void actualizarInformacion() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarCompra(?,?,?,?)}");
-            Compras comprasGuardar = (Compras) tblCompras.getSelectionModel().getSelectedItem();
-            comprasGuardar.setNumeroDocumento(Integer.parseInt(txtNumeroDocumento.getText()));
-            comprasGuardar.setFechaDocumento(Date.valueOf(txtFechaDocumento.getText()));
-            comprasGuardar.setDescripcion(txtDescripcion.getText());
-            comprasGuardar.setTotalDocumento(Double.parseDouble(txtTotalDocumento.getText()));
-            // -------------------------------------------------------------- //
-            procedimiento.setInt(1, comprasGuardar.getNumeroDocumento());
-            procedimiento.setDate(2, comprasGuardar.getFechaDocumento());
-            procedimiento.setString(3, comprasGuardar.getDescripcion());
-            procedimiento.setDouble(4, comprasGuardar.getTotalDocumento());
-            procedimiento.execute();
+            if (txtNumeroDocumento.getText().equals("") || txtFechaDocumento.getText().equals("")
+                || txtDescripcion.getText().equals("") || txtTotalDocumento.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos porfavor", "Ingrese su informacion", JOptionPane.ERROR_MESSAGE);
+            } else {
+                PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarCompra(?,?,?,?)}");
+                Compras comprasGuardar = (Compras) tblCompras.getSelectionModel().getSelectedItem();
+                comprasGuardar.setNumeroDocumento(Integer.parseInt(txtNumeroDocumento.getText()));
+                comprasGuardar.setFechaDocumento(Date.valueOf(txtFechaDocumento.getText()));
+                comprasGuardar.setDescripcion(txtDescripcion.getText());
+                comprasGuardar.setTotalDocumento(Double.parseDouble(txtTotalDocumento.getText()));
+                // -------------------------------------------------------------- //
+                procedimiento.setInt(1, comprasGuardar.getNumeroDocumento());
+                procedimiento.setDate(2, comprasGuardar.getFechaDocumento());
+                procedimiento.setString(3, comprasGuardar.getDescripcion());
+                procedimiento.setDouble(4, comprasGuardar.getTotalDocumento());
+                procedimiento.execute();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -269,7 +278,7 @@ public class MenuComprasController implements Initializable {
             comprasGuardar.setDescripcion(txtDescripcion.getText());
             comprasGuardar.setTotalDocumento(Double.parseDouble(txtTotalDocumento.getText()));
             try {
-                PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_agregarCompras(?,?,?,?,?,?)}");
+                PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_agregarCompra(?,?,?,?)}");
                 procedimiento.setInt(1, comprasGuardar.getNumeroDocumento());
                 procedimiento.setDate(2, comprasGuardar.getFechaDocumento());
                 procedimiento.setString(3, comprasGuardar.getDescripcion());

@@ -121,6 +121,8 @@ public class MenuCargoEmpleadoController implements Initializable {
     public void agregarCargoEmpleado() {
         switch (tipoDeOperaciones) {
             case NULO:
+                limpiarControls();
+                tblCargoEmpleado.setDisable(false);//////////////////////////////////
                 activarControls();
                 btnAgregarCrgEmp.setText("Guardar");
                 btnEliminarCrgEmp.setText("Cancelar");
@@ -140,12 +142,13 @@ public class MenuCargoEmpleadoController implements Initializable {
                 btnReporteCrgEmp.setDisable(false);
                 imgEliminar.setImage(new Image("/org/anthonyescobar/images/iconoEliminar.png"));
                 tipoDeOperaciones = operaciones.NULO;
-
                 break;
         }//SWITVH
+        tblCargoEmpleado.setDisable(true);
     }//METODO
 
     public void eliminarCargoEmpleado() {
+        tblCargoEmpleado.setDisable(false);
         switch (tipoDeOperaciones) {
             case ACTUALIZAR:
                 desactivarControls();
@@ -235,16 +238,21 @@ public class MenuCargoEmpleadoController implements Initializable {
 
     public void actualizarInformacion() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarCargoEmpleado(?,?,?)}");
-            CargoEmpleado cargoEmpleadoGuardar = (CargoEmpleado) tblCargoEmpleado.getSelectionModel().getSelectedItem();
-            cargoEmpleadoGuardar.setCodigoCargoEmpleado(Integer.parseInt(txtCodigoCargoEmpleado.getText()));
-            cargoEmpleadoGuardar.setNombreCargo(txtNombreCargo.getText());
-            cargoEmpleadoGuardar.setDescripcionCargo(txtDescripcionCargo.getText());
-            // -------------------------------------------------------------- //
-            procedimiento.setInt(1, cargoEmpleadoGuardar.getCodigoCargoEmpleado());
-            procedimiento.setString(2, cargoEmpleadoGuardar.getNombreCargo());
-            procedimiento.setString(3, cargoEmpleadoGuardar.getDescripcionCargo());
-            procedimiento.execute();
+            if (txtCodigoCargoEmpleado.getText().equals("") || txtNombreCargo.getText().equals("")
+                || txtDescripcionCargo.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos porfavor", "Ingrese su informacion", JOptionPane.ERROR_MESSAGE);
+            } else {
+                PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarCargoEmpleado(?,?,?)}");
+                CargoEmpleado cargoEmpleadoGuardar = (CargoEmpleado) tblCargoEmpleado.getSelectionModel().getSelectedItem();
+                cargoEmpleadoGuardar.setCodigoCargoEmpleado(Integer.parseInt(txtCodigoCargoEmpleado.getText()));
+                cargoEmpleadoGuardar.setNombreCargo(txtNombreCargo.getText());
+                cargoEmpleadoGuardar.setDescripcionCargo(txtDescripcionCargo.getText());
+                // -------------------------------------------------------------- //
+                procedimiento.setInt(1, cargoEmpleadoGuardar.getCodigoCargoEmpleado());
+                procedimiento.setString(2, cargoEmpleadoGuardar.getNombreCargo());
+                procedimiento.setString(3, cargoEmpleadoGuardar.getDescripcionCargo());
+                procedimiento.execute();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

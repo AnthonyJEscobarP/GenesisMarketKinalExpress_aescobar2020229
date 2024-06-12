@@ -10,6 +10,8 @@ public class Proveedores {
     private String nombreProveedor;
     private String apellidosProveedor;
     private String direccionProveedor;
+    private String telefonoProveedor;
+    private String emailProveedor;
     private String razonSocial;
     private String contactoPrincipal;
     private String paginaWeb;
@@ -18,18 +20,18 @@ public class Proveedores {
     public Proveedores() {
     }
 
-    public Proveedores(int codigoProveedor, String nitProveedor, String nombreProveedor, String apellidosProveedor, String direccionProveedor, String razonSocial, String contactoPrincipal, String paginaWeb) {
+    public Proveedores(int codigoProveedor, String nitProveedor, String nombreProveedor, String apellidosProveedor, String direccionProveedor, String telefonoProveedor, String emailProveedor, String razonSocial, String contactoPrincipal, String paginaWeb) {
         this.codigoProveedor = codigoProveedor;
         this.nitProveedor = nitProveedor;
         this.nombreProveedor = nombreProveedor;
         this.apellidosProveedor = apellidosProveedor;
         this.direccionProveedor = direccionProveedor;
+        this.telefonoProveedor = telefonoProveedor;
+        this.emailProveedor = emailProveedor;
         this.razonSocial = razonSocial;
         this.contactoPrincipal = contactoPrincipal;
         this.paginaWeb = paginaWeb;
     }
-
-    
 
     public int getCodigoProveedor() {
         return codigoProveedor;
@@ -71,6 +73,22 @@ public class Proveedores {
         this.direccionProveedor = direccionProveedor;
     }
 
+    public String getTelefonoProveedor() {
+        return telefonoProveedor;
+    }
+
+    public void setTelefonoProveedor(String telefonoProveedor) {
+        this.telefonoProveedor = telefonoProveedor;
+    }
+
+    public String getEmailProveedor() {
+        return emailProveedor;
+    }
+
+    public void setEmailProveedor(String emailProveedor) {
+        this.emailProveedor = emailProveedor;
+    }
+
     public String getRazonSocial() {
         return razonSocial;
     }
@@ -94,6 +112,11 @@ public class Proveedores {
     public void setPaginaWeb(String paginaWeb) {
         this.paginaWeb = paginaWeb;
     }
-
+    
+    @Override
+    public String toString() {
+        return "|| " + codigoProveedor + " || "  + nitProveedor + " || "  + apellidosProveedor + " || "  + contactoPrincipal + " || " + razonSocial+ " ||";
+    }
+    
  }
  

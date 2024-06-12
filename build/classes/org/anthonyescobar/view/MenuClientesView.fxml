@@ -20,12 +20,12 @@
       <TableView fx:id="tblClientes" layoutX="26.0" layoutY="107.0" onMouseClicked="#seleccionarFila" prefHeight="314.0" prefWidth="769.0" styleClass="tableClientes" stylesheets="@../resources/GenesisEstilos.css">
         <columns>
           <TableColumn fx:id="colClienteID" prefWidth="110.0" text="clienteID" />
-          <TableColumn fx:id="colNombreClientes" prefWidth="110.0" text="nombreClientes" />
-            <TableColumn fx:id="colApellidoClientes" prefWidth="110.0" text="apellidoClientes" />
-            <TableColumn fx:id="colNitClientes" prefWidth="110.0" text="nitClientes" />
-            <TableColumn fx:id="colDireccionClientes" prefWidth="110.0" text="direccionClientes" />
-            <TableColumn fx:id="colTelefonoClientes" prefWidth="110.0" text="telefonoClientes" />
-            <TableColumn fx:id="colCorreoClientes" prefWidth="110.0" text="correoClientes" />
+          <TableColumn fx:id="colNombreClientes" prefWidth="110.0" text="nombreCliente" />
+            <TableColumn fx:id="colApellidoClientes" prefWidth="110.0" text="apellidoCliente" />
+            <TableColumn fx:id="colNitClientes" prefWidth="110.0" text="nitCliente" />
+            <TableColumn fx:id="colDireccionClientes" prefWidth="110.0" text="direccionCliente" />
+            <TableColumn fx:id="colTelefonoClientes" prefWidth="110.0" text="telefonoCliente" />
+            <TableColumn fx:id="colCorreoClientes" prefWidth="110.0" text="correoCliente" />
         </columns>
       </TableView>
       <Button fx:id="btnAgregarC" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="815.0" layoutY="139.0" mnemonicParsing="false" onAction="#agregarCliente" prefHeight="108.0" prefWidth="114.0" styleClass="buttonC" stylesheets="@../resources/GenesisEstilos.css" text="Agregar" textAlignment="CENTER" textFill="WHITE">

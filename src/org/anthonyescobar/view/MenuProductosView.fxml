@@ -15,32 +15,37 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="1090.0" style="-fx-background-color: #2B3C56;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.anthonyescobar.controller.MenuProductosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1121.0" style="-fx-background-color: #2B3C56;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.anthonyescobar.controller.MenuProductosController">
    <children>
-      <TableView fx:id="tblClientes" layoutX="82.0" layoutY="281.0" onMouseClicked="#seleccionarFila" prefHeight="314.0" prefWidth="799.0" styleClass="tableClientes" stylesheets="@../resources/GenesisEstilos.css">
+      <ImageView fitHeight="597.0" fitWidth="1137.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/fondoProductosView.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblProductos" layoutX="54.0" layoutY="110.0" onMouseClicked="#seleccionarFila" prefHeight="314.0" prefWidth="799.0" styleClass="tableClientes" stylesheets="@../resources/GenesisEstilos.css">
         <columns>
-          <TableColumn fx:id="colClienteID" prefWidth="99.0" text="codigoProducto" />
-          <TableColumn fx:id="colNombreClientes" prefWidth="135.0" text="descripcionProducto" />
-            <TableColumn fx:id="colApellidoClientes" prefWidth="90.0" text="precioUnitario" />
-            <TableColumn fx:id="colNitClientes" prefWidth="91.0" text="precioDocena" />
-            <TableColumn fx:id="colDireccionClientes" prefWidth="76.0" text="precioMayor" />
-            <TableColumn fx:id="colCorreoClientes" prefWidth="62.0" text="existencia" />
-            <TableColumn fx:id="colCorreoClientes1" prefWidth="131.0" text="codigoTipoProducto" />
-            <TableColumn fx:id="colCorreoClientes11" prefWidth="114.0" text="codigoProveedor" />
+          <TableColumn fx:id="colCodigoProducto" prefWidth="99.0" text="codigoProducto" />
+          <TableColumn fx:id="colDescripcionProducto" prefWidth="135.0" text="descripcionProducto" />
+            <TableColumn fx:id="colPrecioUnitario" prefWidth="90.0" text="precioUnitario" />
+            <TableColumn fx:id="colPrecioDocena" prefWidth="91.0" text="precioDocena" />
+            <TableColumn fx:id="colPrecioMayor" prefWidth="76.0" text="precioMayor" />
+            <TableColumn fx:id="colExistencia" prefWidth="62.0" text="existencia" />
+            <TableColumn fx:id="colCodigoTipoProducto" prefWidth="131.0" text="codigoTipoProducto" />
+            <TableColumn fx:id="colCodigoProveedor" prefWidth="114.0" text="codigoProveedor" />
         </columns>
       </TableView>
-      <Button fx:id="btnRegresar" layoutX="928.0" layoutY="33.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuProductos" prefHeight="91.0" prefWidth="80.0" styleClass="btnRegresar" stylesheets="@../resources/GenesisEstilos.css">
+      <Button fx:id="btnRegresar" layoutX="1001.0" layoutY="27.0" mnemonicParsing="false" onAction="#ButtonsActionsMenuProductos" prefHeight="91.0" prefWidth="80.0" styleClass="btnRegresar" stylesheets="@../resources/GenesisEstilos.css">
          <graphic>
             <ImageView fitHeight="76.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/iconoMenu.png" />
+                  <Image url="@../images/iconoCasa.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
          </graphic></Button>
-      <GridPane layoutX="45.0" layoutY="143.0" prefHeight="123.0" prefWidth="425.0">
+      <GridPane layoutX="146.0" layoutY="454.0" prefHeight="123.0" prefWidth="425.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="366.0" minWidth="10.0" prefWidth="174.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="189.0" />
@@ -52,33 +57,33 @@
             <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label prefHeight="33.0" prefWidth="165.0" text="Codigo Prd." textFill="WHITE">
+            <Label prefHeight="33.0" prefWidth="165.0" text="Codigo Prd.">
                <font>
                   <Font name="Courier New Bold" size="22.0" />
                </font>
             </Label>
-            <Label prefHeight="33.0" prefWidth="168.0" text="Descripcion" textFill="WHITE" GridPane.rowIndex="1">
+            <Label prefHeight="33.0" prefWidth="168.0" text="Descripcion" GridPane.rowIndex="1">
                <font>
                   <Font name="Courier New Bold" size="22.0" />
                </font>
             </Label>
-            <Label prefHeight="32.0" prefWidth="147.0" text="Precio c/u" textFill="WHITE" GridPane.rowIndex="2">
+            <Label prefHeight="32.0" prefWidth="147.0" text="Precio c/u" GridPane.rowIndex="2">
                <font>
                   <Font name="Courier New Bold" size="23.0" />
                </font>
             </Label>
-            <Label prefHeight="32.0" prefWidth="175.0" text="Precio 12na." textFill="WHITE" GridPane.rowIndex="3">
+            <Label prefHeight="32.0" prefWidth="175.0" text="Precio 12na." GridPane.rowIndex="3">
                <font>
                   <Font name="Courier New Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="txtApellidosProveedor1" prefHeight="39.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtApellidosProveedor11" prefHeight="39.0" prefWidth="220.0" GridPane.columnIndex="1" />
-            <TextField fx:id="txtApellidosProveedor12" prefHeight="39.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtApellidosProveedor111" prefHeight="39.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtDescripcionProducto" prefHeight="39.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCodigoProducto" prefHeight="39.0" prefWidth="220.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtPrecioUnitario" prefHeight="39.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtPrecioDocena" prefHeight="39.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <GridPane layoutX="489.0" layoutY="143.0" prefHeight="123.0" prefWidth="405.0">
+      <GridPane layoutX="584.0" layoutY="454.0" prefHeight="123.0" prefWidth="405.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.0" minWidth="10.0" prefWidth="192.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="379.0" minWidth="10.0" prefWidth="212.0" />
@@ -90,33 +95,33 @@
             <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label prefHeight="33.0" prefWidth="165.0" text="Precio Mayor" textFill="WHITE">
+            <Label prefHeight="33.0" prefWidth="165.0" text="Precio Mayor">
                <font>
                   <Font name="Courier New Bold" size="22.0" />
                </font>
             </Label>
-            <Label prefHeight="29.0" prefWidth="151.0" text="Existencia" textFill="WHITE" GridPane.rowIndex="1">
+            <Label prefHeight="29.0" prefWidth="151.0" text="Existencia" GridPane.rowIndex="1">
                <font>
                   <Font name="Courier New Bold" size="23.0" />
                </font>
             </Label>
-            <Label prefHeight="32.0" prefWidth="175.0" text="Cod.Tipo P." textFill="WHITE" GridPane.rowIndex="2">
+            <Label prefHeight="32.0" prefWidth="175.0" text="Cod.Tipo P." GridPane.rowIndex="2">
                <font>
                   <Font name="Courier New Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodigoProveedor11" prefHeight="30.0" prefWidth="158.0" GridPane.columnIndex="1" />
-            <TextField fx:id="txtNitProveedor11" prefHeight="30.0" prefWidth="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label prefHeight="32.0" prefWidth="175.0" text="Cod.Proveedor" textFill="WHITE" GridPane.rowIndex="3">
+            <TextField fx:id="txtPrecioMayor" prefHeight="30.0" prefWidth="158.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtExistencia" prefHeight="30.0" prefWidth="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label prefHeight="32.0" prefWidth="175.0" text="Cod.Proveedor" GridPane.rowIndex="3">
                <font>
                   <Font name="Courier New Bold" size="22.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="33.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox prefHeight="33.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbCodigoTipoProducto" prefHeight="33.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cmbCodigoProveedor" prefHeight="33.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Button fx:id="btnAgregarCrgEmp" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="767.0" layoutY="24.0" mnemonicParsing="false" onAction="#agregarCargoEmpleado" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCrgEmp" stylesheets="@../resources/GenesisEstilos.css" text="Agregar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnAgregarPrd" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="877.0" layoutY="136.0" mnemonicParsing="false" onAction="#agregarProducto" prefHeight="49.0" prefWidth="158.0" styleClass="buttonPrv" stylesheets="@../resources/GenesisEstilos.css" text="Agregar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font>
@@ -124,14 +129,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fx:id="imgAgregar1" fitHeight="47.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgAgregar" fitHeight="30.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/iconoAgregar.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnEditarCrgEmp" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="918.0" layoutY="151.0" mnemonicParsing="false" onAction="#editarCargoEmpleado" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCrgEmp" stylesheets="@../resources/GenesisEstilos.css" text="Editar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnEliminarPrd" alignment="BASELINE_LEFT" graphicTextGap="5.0" layoutX="877.0" layoutY="207.0" mnemonicParsing="false" onAction="#eliminarProducto" prefHeight="50.0" prefWidth="158.0" styleClass="buttonPrv" stylesheets="@../resources/GenesisEstilos.css" text="Eliminar" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font>
@@ -139,29 +144,29 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fx:id="imgEditar" fitHeight="46.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/iconoEditar.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="btnEliminarCrgEmp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="0.0" layoutX="918.0" layoutY="299.0" mnemonicParsing="false" onAction="#eliminarCargoEmpleado" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCrgEmp" stylesheets="@../resources/GenesisEstilos.css" text="Eliminar" textFill="WHITE">
-         <font>
-            <Font name="Rockwell" size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <graphic>
-            <ImageView fx:id="imgEliminar" fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgEliminar1" fitHeight="34.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/iconoEliminar.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnReporteCrgEmp" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="5.0" layoutX="918.0" layoutY="454.0" mnemonicParsing="false" onAction="#reportesCancelarCargoEmpleado" prefHeight="108.0" prefWidth="114.0" styleClass="buttonCrgEmp" stylesheets="@../resources/GenesisEstilos.css" text="Reportes" textFill="WHITE">
+      <Button fx:id="btnEditarPrd" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="877.0" layoutY="282.0" mnemonicParsing="false" onAction="#editarProducto" prefHeight="49.0" prefWidth="158.0" styleClass="buttonPrv" stylesheets="@../resources/GenesisEstilos.css" text="Editar" textFill="WHITE">
+         <font>
+            <Font name="Rockwell" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="imgEditar" fitHeight="31.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconoEditar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnReportePrd" alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="877.0" layoutY="354.0" mnemonicParsing="false" onAction="#reportesCancelarProductos" prefHeight="49.0" prefWidth="158.0" styleClass="buttonPrv" stylesheets="@../resources/GenesisEstilos.css" text="Reportes" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="19.0" />
          </font>
@@ -169,7 +174,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fx:id="imgReporte" fitHeight="54.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgReporte1" fitHeight="29.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/iconoListar.png" />
                </image>

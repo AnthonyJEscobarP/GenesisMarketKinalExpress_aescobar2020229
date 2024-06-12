@@ -11,11 +11,11 @@ package org.anthonyescobar.bean;
  */
 public class Clientes {
     private int clienteID;
-    private String nombreClientes;
-    private String apellidoClientes;
-    private String nitClientes;
-    private String direccionClientes;
-    private String telefonoClientes;
+    private String nombreCliente;
+    private String apellidoCliente;
+    private String nitCliente;
+    private String direccionCliente;
+    private String telefonoCliente;
     private String correoClientes;
     
  
@@ -24,11 +24,11 @@ public class Clientes {
 
     public Clientes(int clienteID, String nombreClientes, String apellidoClientes, String nitClientes, String direccionClientes, String telefonoClientes, String correoClientes) {
         this.clienteID = clienteID;
-        this.nombreClientes = nombreClientes;
-        this.apellidoClientes = apellidoClientes;
-        this.nitClientes = nitClientes;
-        this.direccionClientes = direccionClientes;
-        this.telefonoClientes = telefonoClientes;
+        this.nombreCliente = nombreClientes;
+        this.apellidoCliente = apellidoClientes;
+        this.nitCliente = nitClientes;
+        this.direccionCliente = direccionClientes;
+        this.telefonoCliente = telefonoClientes;
         this.correoClientes = correoClientes;
     }
 
@@ -40,44 +40,44 @@ public class Clientes {
         this.clienteID = clienteID;
     }
 
-    public String getNombreClientes() {
-        return nombreClientes;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setNombreClientes(String nombreClientes) {
-        this.nombreClientes = nombreClientes;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
-    public String getApellidoClientes() {
-        return apellidoClientes;
+    public String getApellidoCliente() {
+        return apellidoCliente;
     }
 
-    public void setApellidoClientes(String apellidoClientes) {
-        this.apellidoClientes = apellidoClientes;
+    public void setApellidoCliente(String apellidoCliente) {
+        this.apellidoCliente = apellidoCliente;
     }
 
-    public String getNitClientes() {
-        return nitClientes;
+    public String getNitCliente() {
+        return nitCliente;
     }
 
-    public void setNitClientes(String nitClientes) {
-        this.nitClientes = nitClientes;
+    public void setNitCliente(String nitCliente) {
+        this.nitCliente = nitCliente;
     }
 
-    public String getDireccionClientes() {
-        return direccionClientes;
+    public String getDireccionCliente() {
+        return direccionCliente;
     }
 
-    public void setDireccionClientes(String direccionClientes) {
-        this.direccionClientes = direccionClientes;
+    public void setDireccionCliente(String direccionCliente) {
+        this.direccionCliente = direccionCliente;
     }
 
-    public String getTelefonoClientes() {
-        return telefonoClientes;
+    public String getTelefonoCliente() {
+        return telefonoCliente;
     }
 
-    public void setTelefonoClientes(String telefonoClientes) {
-        this.telefonoClientes = telefonoClientes;
+    public void setTelefonoCliente(String telefonoCliente) {
+        this.telefonoCliente = telefonoCliente;
     }
 
     public String getCorreoClientes() {
@@ -87,6 +87,12 @@ public class Clientes {
     public void setCorreoClientes(String correoClientes) {
         this.correoClientes = correoClientes;
     }
+
+    @Override
+    public String toString() {
+        return "||"  + clienteID + "||"  + nombreCliente + "||"  + apellidoCliente + "||"  + nitCliente + "||"  + telefonoCliente + "||";
+    }
+    
     
     
  }
